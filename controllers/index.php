@@ -9,11 +9,21 @@
 class Index extends Controller{
     function __construct(){
         parent::__construct();
-        echo "IndexController<br>";
+
+    }
+    function index(){
+        $this->view->msg = "This is index page";
+        $this->view->render("index/index");
+
+    }
+
+    function details(){
+
     }
 
     function other($arg = false){
-        echo "Inside other method <br>";
-        echo "with $arg";
+        $this->view->msg = "Inside other method <br>";
+        $this->view->render("index/index");
+
     }
 }

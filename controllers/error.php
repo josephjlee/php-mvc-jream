@@ -9,7 +9,11 @@
 class Error extends Controller{
     function __construct(){
         parent::__construct();
-        $this->view->render("error/index");
 
+
+    }
+    function index($msg = false){
+        $this->view->msg = $msg;
+        $this->view->render("error/index");
     }
 }

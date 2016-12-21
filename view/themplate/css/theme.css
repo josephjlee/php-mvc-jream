@@ -1,0 +1,19 @@
+body{
+    background: #ccc;
+
+}
+#header{
+    padding: 20px;
+    background: #cccccc;
+}
+#content{
+    background: mintcream;
+    padding: 20px;
+
+}
+
+#footer{
+    background: greenyellow;
+    padding: 20px;
+
+}

@@ -10,6 +10,21 @@ class Help extends Controller{
 
     function __construct(){
         parent::__construct();
-        echo "Inside Help";
-}
+
+        $this->view->msg = "This is help page";
+
+
+    }
+    function index(){
+        $this->view->render("help/index");
+    }
+
+    function other($args = false){
+
+
+        require 'models/helpModel.php';
+        $model = new helpModel();
+        $this->view->blah = $model->blah();
+
+    }
 }
