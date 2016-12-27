@@ -7,6 +7,6 @@
  */
 class Model{
     public function __construct(){
-//        $this->database = new Database();
+        $this->db = new Database();
     }
 }

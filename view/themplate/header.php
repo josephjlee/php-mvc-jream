@@ -9,12 +9,20 @@
           crossorigin="anonymous">
 
 </head>
+<?php Session::init()?>
+<body>
 <div id="header">
     <div class="navbar">
         <ul class="nav navbar-nav">
             <li><a href="<?=URL;?>index">Шаблон</a></li>
             <li><a href="<?=URL;?>help">Клинеты</a></li>
-            <li><a href="<?=URL;?>login">Вход</a></li>
+            <?php
+                if (Session::get('loggedIn')): ?>
+                    <li><a href="<?=URL;?>dashboard/logout">Выход</a></li>
+            <?php else:  ?>
+                    <li><a href="<?=URL;?>login">Вход</a></li>
+            <?php endif; ?>
+
             <li><a href="<?=URL;?>mails">Рассылка</a></li>
         </ul>
     </div>
