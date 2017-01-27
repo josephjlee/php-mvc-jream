@@ -10,7 +10,7 @@ $(function(){
 
         $('.del').on('click', function(){
             delItem = $(this);
-            var id = delItem.attr('rel');
+            var id = $(this).attr('rel');
 
 
             $.post('dashboard/xhrDeleteListing', {"id": id}, function(o){
@@ -30,7 +30,7 @@ $(function(){
 
         $.post(url, data, function(o){
 
-            $('#listInsert').append('<div>'+ o.text+ '&nbsp; <a class="del" rel="'+ o.id+'" href="">delete</a></div>');
+            $('#listInsert').append('<div>'+ o.text+ '&nbsp; <a class="del" rel="'+ o.id+'" href="#">delete</a></div>');
             $("[name='text']").val("");
         }, 'json');
 

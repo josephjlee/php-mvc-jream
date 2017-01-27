@@ -14,15 +14,19 @@ class LoginModel extends Model{
     }
     function run()
     {
-        $stm = $this->db->prepare("SELECT id FROM users WHERE name = :login AND pass = sha1(:password)");
+        $stm = $this->db->prepare("SELECT id, role FROM users WHERE name = :login AND pass = sha1(:password)");
         $stm->execute(array(
             ':login'    => $_POST['login'],
             ':password' => $_POST['pass']));
 //        $data = $stm->fetchAll();
+        $data = $stm->fetch(PDO::FETCH_ASSOC);
+
+
         $count = $stm->rowCount();
         if($count>0){
             //login
             Session::init();
+            Session::set('role', $data['role']);
             Session::set('loggedIn', true);
             header('location: ../dashboard');
         }else{

@@ -24,9 +24,18 @@ class DashBoard extends Controller{
     }
     function logout(){
         Session::destroy();
-        header('location: ../login');
+        header('location:' .URL.'login');
         exit;
 
     }
+    function xhrInsert(){
+        $this->model->xhrInsert();
+    }
+    function xhrGetListing(){
+        $this->model->xhrGetListing();
+    }
+    function xhrDeleteListing(){
+        $this->model->xhrDeleteListing();
 
+    }
 }

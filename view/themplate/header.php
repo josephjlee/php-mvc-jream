@@ -14,12 +14,22 @@
 <div id="header">
     <div class="navbar">
         <ul class="nav navbar-nav">
-            <li><a href="<?=URL;?>index">Шаблон</a></li>
-            <li><a href="<?=URL;?>help">Клинеты</a></li>
+
+
             <?php
                 if (Session::get('loggedIn')): ?>
+                    <?php if(Session::get('role') == 'owner'): ?>
+                        <li><a href="<?=URL;?>user">Users</a></li>
+                    <?php else: ?>
+                        <?php if(Session::get('role') == 'admin'): ?>
+                            <li><a href="<?=URL;?>admin">Admin</a></li>
+                            <?php endif; ?>
+                    <?php endif; ?>
+                    <li><a href="<?=URL;?>dashboard">Dashboard</a></li>
                     <li><a href="<?=URL;?>dashboard/logout">Выход</a></li>
             <?php else:  ?>
+                    <li><a href="<?=URL;?>index">Шаблон</a></li>
+                    <li><a href="<?=URL;?>help">Клинеты</a></li>
                     <li><a href="<?=URL;?>login">Вход</a></li>
             <?php endif; ?>
 
