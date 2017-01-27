@@ -51,6 +51,15 @@ class User extends Controller
     }
     public function editSave($id)
     {
+        $data = array();
+        $data['id'] = $id;
+        $data['name'] = $_POST['login'];
+        $data['pass'] = sha1($_POST['pass']);
+        $data['role'] = $_POST['role'];
+
+        //@TODO: Do some error checking;
+
+        $this->model->editSave($data);
         header('location: '.URL.'user');
     }
 

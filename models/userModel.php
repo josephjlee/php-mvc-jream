@@ -36,11 +36,26 @@ class UserModel extends Model{
 
         $stm->execute(array(
             ':name'     => $data['name'],
-            ':pass' => $data['pass'],
+            ':pass' => sha1($data['pass']),
             ':role'     => $data['role']
         ));
     }
 
+    public function editSave($data)
+    {
+        $stm = $this->db->prepare('UPDATE users
+                    SET `name` = :name, `pass` = :pass, `role` =:role
+                    WHERE id = :id
+                    ');
+
+
+        $stm->execute(array(
+            ':id' => $data['id'],
+            ':name'     => $data['name'],
+            ':pass' => sha1($data['pass']),
+            ':role'     => $data['role']
+        ));
+    }
     public function delete($id){
         $stm = $this->db->prepare('DELETE FROM users WHERE id = :id');
         $stm->execute(array(
