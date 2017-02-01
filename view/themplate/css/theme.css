@@ -20,3 +20,8 @@ body{
 .user-control{
 
 }
+select.user-form {
+    height: 24px;
+    width: 175px;
+
+}

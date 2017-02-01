@@ -11,7 +11,11 @@ require "libs/controller.php";
 require "libs/database.php";
 require "libs/model.php";
 require "libs/view.php";
+require "libs/hash.php";
 require "config/paths.php";
 require "config/database.php";
 $bootstrap = new Bootstrap();
+
+
+//@TODO: Need autoload;
 
